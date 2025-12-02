@@ -1,71 +1,90 @@
-# Claude + Gemini Collaboration Workflow
+# Claude + Gemini Collaboration Hub
 
-Two-model refinement process for pitch documents and website designs.
+Two-model refinement workflow for pitch documents, landing pages, and design work.
 
 ## Philosophy
 
 - **Claude Code** (80%): Heavy lifting - research, structure, initial design, self-iteration
 - **Gemini** (20%): Fresh eyes - visual polish, alternative ideas, catching details
 
-## Workflow
+## Live Previews
 
-```
-Claude Code → drafts/ → Gemini Review → gemini-feedback/ → Claude implements → final/
-```
+All projects are deployed to GitHub Pages:
+**Base URL:** https://leomesheti-crypto.github.io/claude-gemini-collab/
 
-### Step 1: Claude Code Creates Draft
-Claude uses established skills and patterns to produce a near-final version:
-- `frontend-design` skill for aesthetics
-- `library/patterns/` for proven templates
-- 2-3 self-iterations before handoff
+## Projects
 
-Output: `drafts/{project}-v{n}.html`
+| Project | Status | Description |
+|---------|--------|-------------|
+| [ai-agency-pitch](projects/ai-agency-pitch/) | In Review | Sales one-pager for AI services |
 
-### Step 2: Gemini Reviews
-Use the prompt template in `gemini-feedback/REVIEW-PROMPT.md`
-
-Gemini provides:
-- Visual critique (what feels off?)
-- Micro-refinements (spacing, alignment, color)
-- Alternative suggestions (what if we tried...?)
-- Fresh ideas to consider
-
-Output: `gemini-feedback/{project}-v{n}-review.md`
-
-### Step 3: Claude Implements
-Claude Code reviews Gemini's feedback and implements chosen refinements.
-
-Output: `final/{project}-final.html`
-
-### Step 4: (Optional) Alternative Explorations
-If Gemini suggests interesting alternative directions, explore in:
-`alternatives/{project}-{variation}/`
-
-## Directory Structure
+## Structure
 
 ```
 claude-gemini-collab/
-├── README.md                 # This file
-├── drafts/                   # Claude's near-final versions
-│   └── {project}-v{n}.html
-├── gemini-feedback/          # Gemini's reviews
-│   ├── REVIEW-PROMPT.md      # Template for Gemini
-│   └── {project}-v{n}-review.md
-├── final/                    # Approved final versions
-│   └── {project}-final.html
-└── alternatives/             # Alternative directions
-    └── {project}-{variation}/
+├── README.md                    # This file
+├── _templates/                  # Reusable review prompts
+│   └── REVIEW-PROMPT.md
+└── projects/
+    └── {project-name}/          # One folder per project
+        ├── README.md            # Project brief & status
+        ├── drafts/              # Claude's work-in-progress
+        ├── gemini-feedback/     # Gemini's reviews
+        └── final/               # Approved deliverables
 ```
 
-## Current Projects
+## Workflow
 
-| Project | Status | Location |
-|---------|--------|----------|
-| AI Agency Pitch | In Review | `drafts/ai-agency-pitch-v1.html` |
+### 1. Start New Project
+```bash
+# Create project folder
+mkdir -p projects/{project-name}/{drafts,gemini-feedback,final}
 
-## Tips for Good Gemini Reviews
+# Add project README with brief
+```
 
-1. **Share the screenshot**, not just the code
-2. **Give context**: "This is for local service businesses"
-3. **Be specific**: "Focus on visual polish, not content changes"
-4. **Ask for 3 things**: Keeps feedback actionable
+### 2. Claude Creates Draft
+- Uses established skills and patterns
+- 2-3 self-iterations before handoff
+- Commits to `projects/{name}/drafts/`
+
+### 3. Gemini Reviews
+- Access via GitHub Pages URL or read code directly from repo
+- Use prompt template from `_templates/REVIEW-PROMPT.md`
+- Save feedback to `projects/{name}/gemini-feedback/`
+
+### 4. Claude Implements Refinements
+- Review Gemini's feedback
+- Implement chosen suggestions
+- Final version goes to `projects/{name}/final/`
+
+## How Gemini Accesses Files
+
+**Option A: Live Preview (Visual)**
+```
+https://leomesheti-crypto.github.io/claude-gemini-collab/projects/{name}/drafts/{file}.html
+```
+
+**Option B: Raw Code (Direct)**
+```
+https://github.com/leomesheti-crypto/claude-gemini-collab/blob/master/projects/{name}/drafts/{file}.html
+```
+
+Both give Gemini full access to the actual files, not screenshots.
+
+## Adding a New Project
+
+1. Create folder: `projects/{project-name}/`
+2. Add subfolders: `drafts/`, `gemini-feedback/`, `final/`
+3. Create `README.md` with:
+   - Brief (what is it)
+   - Target audience
+   - Goal
+   - Brand feel
+   - Status table
+4. Start creating in `drafts/`
+
+## Templates
+
+See `_templates/` for:
+- `REVIEW-PROMPT.md` - Standard, quick, and deep review prompts for Gemini
