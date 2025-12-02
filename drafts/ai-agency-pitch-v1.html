@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agency Service Bundle - One Pager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HOOK SECTION */
+        .hook {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hook-eyebrow {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #f59e0b;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .hook-headline {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hook-subhead {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* PROBLEM SECTION */
+        .problem {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 24px 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .problem-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ef4444;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .problem-stat {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ef4444;
+            margin-bottom: 4px;
+        }
+
+        .problem-context {
+            font-size: 16px;
+            color: #fca5a5;
+        }
+
+        /* SOLUTION PILLARS */
+        .solution {
+            margin-bottom: 40px;
+        }
+
+        .solution-label {
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #22c55e;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .pillar {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pillar:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .pillar-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .pillar-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+
+        .pillar-outcome {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .pillar-stat {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        /* PROOF STRIP */
+        .proof {
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .proof-headline {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #f8fafc;
+        }
+
+        .proof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: #3b82f6;
+        }
+
+        .proof-stat-label {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #0f172a;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(245, 158, 11, 0.4);
+        }
+
+        .cta-subtext {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 32px;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            font-weight: 600;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        .footer-contact {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #475569;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: #0f172a;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HOOK: 10-second grab -->
+        <section class="hook">
+            <p class="hook-eyebrow">The Silent Revenue Killer</p>
+            <h1 class="hook-headline">You're Losing Money<br>Every Night at 6pm</h1>
+            <p class="hook-subhead">When your doors close, so does your ability to capture leads, book appointments, and close sales.</p>
+        </section>
+
+        <!-- PROBLEM: Quantified pain -->
+        <section class="problem">
+            <p class="problem-label">The Hidden Cost</p>
+            <p class="problem-stat">78%</p>
+            <p class="problem-context">of customers choose the first business that responds.<br>If you're asleep, your competitor isn't.</p>
+        </section>
+
+        <!-- SOLUTION: 3 Pillars -->
+        <section class="solution">
+            <p class="solution-label">The Complete AI Front Office</p>
+            <div class="pillars">
+
+                <div class="pillar">
+                    <div class="pillar-icon">🎯</div>
+                    <h3 class="pillar-title">Get Found First</h3>
+                    <p class="pillar-outcome">AI-optimized website that ranks for the keywords your customers actually search</p>
+                    <p class="pillar-stat">+340% organic visibility</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">📞</div>
+                    <h3 class="pillar-title">Never Miss a Lead</h3>
+                    <p class="pillar-outcome">AI voice agent answers calls 24/7, books appointments, and qualifies leads while you sleep</p>
+                    <p class="pillar-stat">100% call capture rate</p>
+                </div>
+
+                <div class="pillar">
+                    <div class="pillar-icon">💰</div>
+                    <h3 class="pillar-title">Auto-Convert & Collect</h3>
+                    <p class="pillar-outcome">Seamless payment capture and smart scheduling that eliminates no-shows</p>
+                    <p class="pillar-stat">-65% no-show rate</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROOF: Trust indicators -->
+        <section class="proof">
+            <h2 class="proof-headline">Results That Speak for Themselves</h2>
+            <div class="proof-stats">
+                <div class="proof-stat">
+                    <p class="proof-stat-number">14</p>
+                    <p class="proof-stat-label">Days to Launch</p>
+                </div>
+                <div class="proof-stat">
+                    <p class="proof-stat-number">$0</p>
+                    <p class="proof-stat-label">Upfront Cost</p>
+                </div>
+                <div class="proof-stat">
+                    <p class="proof-stat-number">3.2x</p>
+                    <p class="proof-stat-label">Avg. ROI</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA: Single, specific action -->
+        <section class="cta">
+            <a href="#" class="cta-button">Get Your Free Digital Audit</a>
+            <p class="cta-subtext">15-minute call. We'll show you exactly where you're losing leads.</p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p class="footer-logo">YOUR AGENCY NAME</p>
+            <p class="footer-contact">hello@youragency.com | (555) 123-4567</p>
+        </footer>
+
+    </div>
+</body>
+</html>
